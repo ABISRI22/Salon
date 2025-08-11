@@ -1,0 +1,235 @@
+.logo-wrapper {
+  display: flex;
+  top: 50%;
+  gap: 1rem;
+  border-radius: 50%;
+}
+
+.offers-page {
+  font-family: 'Poppins', sans-serif;
+  color: #d0bfcd;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+ 
+}
+
+/* Base Styles */
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Logo Styles */
+
+
+.navbar-logo {
+  width: 50px;
+  height: auto;
+  transition: transform 0.3s ease;
+  border-radius: 50%;
+}
+
+.logo-text {
+  color: #6a0dad;
+  font-size: 5px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.logostext{
+      color: #6a0dad; /* Purple color */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+/* Navigation Menu */
+.nav-menu {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: #6a0dad;
+}
+
+.nav-link.active {
+  color: #6a0dad;
+  font-weight: 600;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 2px;
+  background-color: #6a0dad;
+  animation: underline 0.3s ease forwards;
+}
+
+@keyframes underline {
+  from { width: 0 }
+  to { width: 50% }
+}
+
+/* Book Appointment Button */
+.appointment-button {
+  background: linear-gradient(135deg, #8a2be2, #6a0dad);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 0.6rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .nav-container {
+    flex-direction: column;
+  }
+  
+  .nav-menu {
+    margin-top: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .book-appointment-btn {
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+  
+  .logo-text {
+    font-size: 1.2rem;
+  }
+  
+  .nav-menu {
+    gap: 0.8rem;
+  }
+  
+  .nav-link {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+}
+/* Dropdown Styles */
+.nav-item.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
+  z-index: 1000;
+  list-style: none;
+  margin-top: 0.5rem;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1.5rem;
+  color: #4b5563;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.dropdown-item i {
+  width: 20px;
+  text-align: center;
+}
+
+.dropdown-item:hover {
+  background: #f9f5ff;
+  color: #7c3aed;
+  padding-left: 1.8rem;
+}
+
+.dropdown-item.active {
+  color: #7c3aed;
+  font-weight: 500;
+}
+
+.dropdown-item.view-all {
+  border-top: 1px solid #f3f4f6;
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+  color: #7c3aed;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    padding: 0;
+    margin-top: 0;
+  }
+  
+  .dropdown-item {
+    padding: 0.8rem 1rem 0.8rem 2.5rem;
+  }
+}

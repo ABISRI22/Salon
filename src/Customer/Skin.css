@@ -1,0 +1,119 @@
+/* Skin.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&family=Duru+Sans&display=swap');
+
+.skin-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #fff9f4;
+}
+
+.skin-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.playfair-display {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.header-underline {
+  height: 3px;
+  background: linear-gradient(90deg, #f8ad9d, #f4978e);
+  margin: 0 auto;
+  width: 100px;
+}
+
+.dancing-script {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.treatments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.treatment-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-image-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.card-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.treatment-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.duru-sans-regular {
+  font-family: 'Duru Sans', sans-serif;
+  line-height: 1.5;
+  color: #555;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.book-now-btn {
+  background-color: #f4978e;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-family: 'Duru Sans', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  align-self: center;
+  transition: all 0.3s ease;
+  width: 80%;
+}
+
+.book-now-btn:hover {
+  background-color: #f08080;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .treatments-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .playfair-display {
+    font-size: 2rem;
+  }
+  
+  .dancing-script {
+    font-size: 1rem;
+  }
+}

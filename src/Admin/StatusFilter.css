@@ -1,0 +1,24 @@
+.filter-container {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.filter-button {
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  background-color: #f3f4f6;
+  color: #374151;
+  white-space: nowrap;
+}
+
+.filter-button.active {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
