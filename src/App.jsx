@@ -12,6 +12,9 @@ import AppointmentPortal from './Admin/AppointmentPortal'; // Import the new com
 import './App.css'
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
+
+
+
 function App() {
   return (
     <Router>
@@ -25,13 +28,14 @@ function App() {
             <Route path="/Services" element={<Services />} />
             <Route path="/contactus" element={<Contactus />} />
             <Route path="/Offers" element={<Offers />} />
+          
             <Route path="/appointments" element={<AppointmentPortal />} /> {/* New route */}
           </Routes>
         </main>
-        <Footer />
+        <Footer/>
       </div>
     </Router>
   )
 }
 
-export default App
+export default App 
