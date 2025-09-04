@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { FaFacebook, FaTwitter, FaInstagram, FaPinterest } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import './Footer.css';
+import Partners from './Partners';
 
 function Footer() {
   // Animation variants
@@ -99,10 +100,10 @@ function Footer() {
                 <Link to="/aboutus">About Us</Link>
               </motion.li>
               <motion.li whileHover={{ x: 5 }}>
-                <Link to="/values">Values</Link>
+                <Link to="/offers">Offers</Link>
               </motion.li>
               <motion.li whileHover={{ x: 5 }}>
-                <Link to="/partners">Partners</Link>
+                <Link to="/Partners">Partners</Link>
               </motion.li>
             </ul>
           </motion.div>
@@ -114,10 +115,10 @@ function Footer() {
             <h5 className="footer-heading">Quick Links</h5>
             <ul className="footer-links">
               <motion.li whileHover={{ x: 5 }}>
-                <Link to="/partners">Partners</Link>
+                <Link to="/Partners">Partners</Link>
               </motion.li>
               <motion.li whileHover={{ x: 5 }}>
-                <Link to="/contact">Contact Us</Link>
+                <Link to="/contactus">Contact Us</Link>
               </motion.li>
               <motion.li whileHover={{ x: 5 }}>
                 <Link to="/salon-trendy">Salon Trendy</Link>

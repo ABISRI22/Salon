@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 
-function Navbar() {
+function Navbar({ user, onLogout }) {
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   // Animation variants
   const container = {
@@ -70,6 +72,26 @@ function Navbar() {
       opacity: 0,
       y: -20,
       transition: { duration: 0.2 }
+    }
+  };
+
+  const handleLogout = () => {
+    if (onLogout) {
+      onLogout();
+    }
+    setUserMenuOpen(false);
+    navigate('/');
+  };
+
+  const handleLogin = () => {
+    navigate('/login');
+  };
+
+  const handleBookAppointment = () => {
+    if (user) {
+      navigate('/appointments');
+    } else {
+      navigate('/login');
     }
   };
 
@@ -160,24 +182,18 @@ function Navbar() {
                   <i className="fas fa-spa"></i> Skin Services
                 </NavLink>
               </li>
-              <li>
-                <NavLink 
-                  to="/services/makeup" 
-                  className="dropdown-item"
-                  activeclassname="active"
-                >
-                  <i className="fas fa-paint-brush"></i> Makeup Services
-                </NavLink>
-              </li>
-              <li>
-                <NavLink 
-                  to="/appointments" 
-                  className="dropdown-item"
-                  activeclassname="active"
-                >
-                  <i className="fas fa-calendar-alt"></i> Staff Portal
-                </NavLink>
-              </li>
+             
+              {user && user.role === 'staff' && (
+                <li>
+                  <NavLink 
+                    to="/appointments" 
+                    className="dropdown-item"
+                    activeclassname="active"
+                  >
+                    <i className="fas fa-calendar-alt"></i> Staff Portal
+                  </NavLink>
+                </li>
+              )}
             </motion.ul>
           </motion.li>
 
@@ -203,6 +219,55 @@ function Navbar() {
             </motion.li>
           ))}
 
+          {/* User Menu or Login Button */}
+          {user ? (
+            <motion.li 
+              className="nav-item user-menu"
+              variants={item}
+              onMouseEnter={() => setUserMenuOpen(true)}
+              onMouseLeave={() => setUserMenuOpen(false)}
+            >
+              <div className="user-welcome">
+                <i className="fas fa-user-circle"></i>
+                <span>Hi, {user.name}</span>
+                <i className={`fas fa-chevron-${userMenuOpen ? 'up' : 'down'}`}></i>
+              </div>
+              
+              <motion.ul 
+                className="user-dropdown-menu"
+                initial="closed"
+                animate={userMenuOpen ? "open" : "closed"}
+                variants={dropdownVariants}
+              >
+             
+              
+                <li>
+                  <button 
+                    className="dropdown-item logout-btn"
+                    onClick={handleLogout}
+                  >
+                    <i className="fas fa-sign-out-alt"></i> Logout
+                  </button>
+                </li>
+              </motion.ul>
+            </motion.li>
+          ) : (
+            <motion.li 
+              className="nav-item login-btn"
+              variants={buttonAnimation}
+              whileHover="hover"
+              whileTap="tap"
+            >
+              <motion.button 
+                className="login-button"
+                onClick={handleLogin}
+                variants={buttonAnimation}
+              >
+                <i className="fas fa-sign-in-alt"></i> Login
+              </motion.button>
+            </motion.li>
+          )}
+
           <motion.li 
             className="nav-item book-appointment-btn"
             variants={buttonAnimation}
@@ -211,9 +276,10 @@ function Navbar() {
           >
             <motion.button 
               className="appointment-button"
+              onClick={handleBookAppointment}
               variants={buttonAnimation}
             >
-              Book Appointment
+              <i className="fas fa-calendar-plus"></i> Book Appointment
             </motion.button>
           </motion.li>
         </motion.ul>

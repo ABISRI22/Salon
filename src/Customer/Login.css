@@ -1,0 +1,252 @@
+
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 20px;
+}
+
+.login-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+  padding: 30px;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.login-header .logo {
+ 
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.login-header .logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.login-header h1 {
+  margin: 0 0 0 10px;
+  color: #333;
+  font-size: 24px;
+}
+
+.login-header p {
+  color: #666;
+  margin: 5px 0 0;
+}
+
+.demo-note {
+  color: #4a90e2 !important;
+  font-weight: 500;
+  margin-top: 10px !important;
+  font-size: 14px;
+}
+
+.login-form {
+  margin-bottom: 20px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  width: 100%;
+  
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333;
+}
+
+.password-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+
+}
+
+.forgot-link {
+  color: #4a90e2;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+.password-input-container {
+  position: relative;
+  align-items: center;
+}
+
+.password-input-container input {
+  width: 100%;
+  padding: 12px 45px 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.password-input-container input:focus {
+  border-color: #4a90e2;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #777;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.password-toggle:hover {
+  color: #4a90e2;
+  background-color: #f0f0f0;
+}
+
+.password-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-button:hover {
+  background-color: #3a80d2;
+}
+
+.login-button.loading {
+  background-color: #a0c2f0;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.message {
+  padding: 12px;
+  border-radius: 6px;
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.message.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.demo-section {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.demo-button {
+  padding: 10px 15px;
+  background-color: #f0f7ff;
+  color: #4a90e2;
+  border: 1px solid #4a90e2;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.demo-button:hover {
+  background-color: #e0eeff;
+}
+
+.signup-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.signup-link p {
+  color: #666;
+}
+
+.signup-text {
+  color: #4a90e2;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.signup-text:hover {
+  text-decoration: underline;
+}
+
+.login-footer {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  color: #888;
+  font-size: 14px;
+}
+
+@media (max-width: 500px) {
+  .login-card {
+    padding: 20px;
+  }
+  
+  .login-header h1 {
+    font-size: 22px;
+  }
+}

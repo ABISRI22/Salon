@@ -2930,4 +2930,38 @@ body {
     text-align: center;
   }
 }
-/* Add any other global styles you need */
+.error-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #ff4444;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-error {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Role-specific backgrounds (optional) */
+.role-customer {
+  background-color: #f5f9f5;
+}
+
+.role-staff {
+  background-color: #f5f5f9;
+}
+
+.role-admin {
+  background-color: #f9f5f5;
+}
