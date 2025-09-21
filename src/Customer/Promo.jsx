@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import './Promo.css';
 
 function Promo() {
+  const navigate = useNavigate();
+  
   const services = [
     { 
       id: 1, 
@@ -61,6 +64,16 @@ function Promo() {
       title: "Keratin Smoothing"
     }
   ];
+
+  // Function to handle booking navigation
+  const handleBookNow = () => {
+    navigate('/slot-booking');
+  };
+
+  // Function to handle "View All Services" navigation
+  const handleViewAllServices = () => {
+    navigate('/services');
+  };
 
   return (
     <div className="promo-section">
@@ -125,6 +138,7 @@ function Promo() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="book-now-btn"
+                    onClick={handleBookNow}
                   >
                     Book Now
                   </motion.button>
@@ -145,6 +159,7 @@ function Promo() {
             whileHover={{ scale: 1.05, boxShadow: "0 8px 25px rgba(0,0,0,0.2)" }}
             whileTap={{ scale: 0.95 }}
             className="main-cta"
+            onClick={handleViewAllServices}
           >
             View All Services
           </motion.button>

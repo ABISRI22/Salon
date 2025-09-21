@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
 function Navbar({ user, onLogout }) {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // Don't render navbar on login pages
+  if (location.pathname === '/login' || location.pathname === '/admin-login') {
+    return null;
+  }
 
   // Animation variants
   const container = {
@@ -83,16 +89,8 @@ function Navbar({ user, onLogout }) {
     navigate('/');
   };
 
-  const handleLogin = () => {
-    navigate('/login');
-  };
-
   const handleBookAppointment = () => {
-    if (user) {
-      navigate('/appointments');
-    } else {
-      navigate('/login');
-    }
+    navigate('/slot-booking');
   };
 
   return (
@@ -201,6 +199,7 @@ function Navbar({ user, onLogout }) {
             { path: "/aboutus", name: "AboutUs" },
             { path: "/offers", name: "Offers" },
             { path: "/contactus", name: "Contactus" },
+           
           ].map((link, index) => (
             <motion.li 
               key={link.path}
@@ -219,7 +218,7 @@ function Navbar({ user, onLogout }) {
             </motion.li>
           ))}
 
-          {/* User Menu or Login Button */}
+          {/* User Menu or Logout Button */}
           {user ? (
             <motion.li 
               className="nav-item user-menu"
@@ -227,10 +226,10 @@ function Navbar({ user, onLogout }) {
               onMouseEnter={() => setUserMenuOpen(true)}
               onMouseLeave={() => setUserMenuOpen(false)}
             >
-              <div className="user-welcome">
-                <i className="fas fa-user-circle"></i>
-                <span>Hi, {user.name}</span>
-                <i className={`fas fa-chevron-${userMenuOpen ? 'up' : 'down'}`}></i>
+              <div className="user-welcome" style={{ display: "flex", alignItems: "center", gap: "8px", cursor: "pointer" }}>
+                <i className="fas fa-user-circle" style={{ fontSize: "22px", color: "#8083e4ff" }}></i>
+                <span style={{ fontWeight: "500", color: "#1a1a1aff" }}>{user.name}</span>
+                <i className={`fas fa-chevron-${userMenuOpen ? "up" : "down"}`} style={{ color: "#666" }}></i>
               </div>
               
               <motion.ul 
@@ -239,8 +238,6 @@ function Navbar({ user, onLogout }) {
                 animate={userMenuOpen ? "open" : "closed"}
                 variants={dropdownVariants}
               >
-             
-              
                 <li>
                   <button 
                     className="dropdown-item logout-btn"
@@ -252,18 +249,19 @@ function Navbar({ user, onLogout }) {
               </motion.ul>
             </motion.li>
           ) : (
+            // Simple logout button for non-logged in users (if needed)
             <motion.li 
-              className="nav-item login-btn"
+              className="nav-item"
               variants={buttonAnimation}
               whileHover="hover"
               whileTap="tap"
             >
               <motion.button 
-                className="login-button"
-                onClick={handleLogin}
+                className="logout-button"
+                onClick={() => navigate('/')}
                 variants={buttonAnimation}
               >
-                <i className="fas fa-sign-in-alt"></i> Login
+                <i className="fas fa-home"></i> Home
               </motion.button>
             </motion.li>
           )}

@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import './Services.css';
 
 function Services() {
+  const navigate = useNavigate();
+  
   // Animation variants
   const container = {
     hidden: { opacity: 0 },
@@ -41,57 +44,53 @@ function Services() {
       title: "Men's Haircut",
       image: "https://www.skinnyscoop.com/wp-content/uploads/2021/12/Short-hair-style-Cowlick-19B.jpg",
       description: "A good haircut can complement a man's face shape and features, drawing attention to the positive aspects.",
-      price: "₹800 onwards"
     },
     {
       title: "Women's Haircut",
       image: "https://client-websites.blr1.digitaloceanspaces.com/peacocksalon/wp-content/uploads/2025/05/26234518/Hair-Cut-Style-for-Women-Long-Hair-3.jpg",
       description: "A fresh haircut can significantly impact a woman's confidence and self-esteem.",
-      price: "₹1300 onwards"
     },
     {
       title: "Kera Smooth",
       image: "https://www.gkhair.ae/cdn/shop/articles/Which_Is_Better_For_Your_Hair_Smoothening_or_Keratin_Treatment.webp?v=1719330876",
       description: "Transform wavy, curly, or frizzy hair into straight, smooth, and shiny hair at Timeless Trendz",
-      price: "₹2300 onwards"
     },
     {
       title: "Hair Wash & Conditioning",
       image: "https://www.incredibleman.in/wp-content/uploads/2022/07/Hair-Washing-Rules-from-The-Salon-Experts.jpg",
       description: "Indulge your hair with a rejuvenating hair wash and conditioning treatment, leaving it refreshed and hydrated.",
-      price: "₹700 onwards"
     },
     {
       title: "AntiDandruff",
       image: "https://m.media-amazon.com/images/I/719bMpI3fVL._UF350,350_QL80_.jpg",
       description: "Frizz can be a sign of dry, damaged hair, which is more prone to breakage and split ends.",
-      price: "₹950 onwards"
     },
     {
       title: "Hair Coloring",
       image: "https://i.pinimg.com/736x/df/ac/53/dfac532cd4bc158ca2411a2b0cdd7d1a.jpg",
       description: "Hair coloring can add depth, dimension, and shine to hair, making it look more vibrant and healthy.",
-      price: "₹1000 onwards"
     },
     {
       title: "Fringe Haircut",
       image: "https://haircutinspiration.com/wp-content/uploads/fringe-1-1.jpg",
       description: "Step up your style game with a fringe haircut featuring two perfectly defined lines.",
-      price: "₹900 onwards"
     },
     {
       title: "Trimming",
       image: "https://www.jiomart.com/images/product/original/rvdcf3nuom/appslite-hair-trimmer-for-men-buddha-style-trimmer-professional-hair-clipper-adjustable-blade-clipper-hair-trimmer-and-shaver-for-men-retro-oil-head-close-cut-precise-hair-trimming-machine-product-images-orvdcf3nuom-p602014487-0-202305310638.jpg?im=Resize=(1000,1000)",
       description: "As long as you're happy with how your hair looks, you shouldn't worry about getting it trimmed that often.",
-      price: "₹500 onwards"
     },
      {
       title: "Beard Sculpt",
       image: "https://igimage.indiaglitz.com/tamil/news/thalapathy68diwali272023mt-f66.jpg",
-      description: "A beard isn’t just facial hair. It’s style, attitude, and confidence. Let our salon bring out the best version of yours.",
-      price: "₹400 onwards"
+      description: "A beard isn't just facial hair. It's style, attitude, and confidence. Let our salon bring out the best version of yours.",
     }
   ];
+
+  // Function to handle booking navigation
+  const handleBookNow = () => {
+    navigate('/slot-booking');
+  };
 
   return (
     <motion.div 
@@ -161,10 +160,10 @@ function Services() {
               <h3>{service.title}</h3>
               <p>{service.description}</p>
               <div className="service-footer">
-                <span className="price">{service.price}</span>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={handleBookNow}
                 >
                   Book Now
                 </motion.button>

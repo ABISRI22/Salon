@@ -103,7 +103,7 @@ function Footer() {
                 <Link to="/offers">Offers</Link>
               </motion.li>
               <motion.li whileHover={{ x: 5 }}>
-                <Link to="/Partners">Partners</Link>
+                <Link to="/aboutus">Partners</Link>
               </motion.li>
             </ul>
           </motion.div>
@@ -115,16 +115,16 @@ function Footer() {
             <h5 className="footer-heading">Quick Links</h5>
             <ul className="footer-links">
               <motion.li whileHover={{ x: 5 }}>
-                <Link to="/Partners">Partners</Link>
+                <Link to="/aboutus">Partners</Link>
               </motion.li>
               <motion.li whileHover={{ x: 5 }}>
                 <Link to="/contactus">Contact Us</Link>
               </motion.li>
               <motion.li whileHover={{ x: 5 }}>
-                <Link to="/salon-trendy">Salon Trendy</Link>
+                <Link to="/services">Services</Link>
               </motion.li>
               <motion.li whileHover={{ x: 5 }}>
-                <Link to="/la-salon">La salon</Link>
+                <Link to="/home">La salon</Link>
               </motion.li>
             </ul>
           </motion.div>

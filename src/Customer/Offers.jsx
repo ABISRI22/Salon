@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import './Offers.css';
 
 function Offers() {
+  const navigate = useNavigate();
+  
   // Animation variants
   const fadeIn = {
     hidden: { opacity: 0, y: 50 },
@@ -51,60 +54,66 @@ function Offers() {
     scale: 0.95
   };
 
+  // Function to handle booking
+   const handleBookNow = () => {
+    navigate('/slot-booking');
+  };
+  
+
   return (
     <div className="offers-page">
       {/* Hero Section */}
-     
-       <motion.section 
-  className="offer-hero"
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  transition={{ duration: 1 }}
->
-  <div className="hero-image-container">
-    <motion.img 
-      src="https://thumbs.dreamstime.com/b/modern-interior-beauty-salon-purple-colors-high-quality-photo-291197475.jpg" 
-      alt="Salon offers"
-      className="hero-image"
-      initial={{ scale: 1.1 }}
-      animate={{ scale: 1 }}
-      transition={{ duration: 1.5, ease: "easeOut" }}
-    />
-    <div className="hero-overlay">
-      <div className="hero-text-container">
-        <motion.h1 
-          className="hero-title"
-          initial={{ y: -50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.8, ease: [0.6, -0.05, 0.01, 0.99] }}
-        >
-          EXCLUSIVE OFFERS & PREMIUM PACKAGES
-        </motion.h1>
-        <motion.p
-          className="hero-subtitle"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-        >
-          Discover our limited-time specials and elevate your beauty experience
-        </motion.p>
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ delay: 0.9, type: "spring", stiffness: 200 }}
-        >
-          <motion.button 
-            className="cta-button"
-            whileHover={buttonHover}
-            whileTap={buttonTap}
-          >
-            Book Now & Save 20%
-          </motion.button>
-        </motion.div>
-      </div>
-    </div>
-  </div>
-</motion.section>
+      <motion.section 
+        className="offer-hero"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
+        <div className="hero-image-container">
+          <motion.img 
+            src="https://thumbs.dreamstime.com/b/modern-interior-beauty-salon-purple-colors-high-quality-photo-291197475.jpg" 
+            alt="Salon offers"
+            className="hero-image"
+            initial={{ scale: 1.1 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+          />
+          <div className="hero-overlay">
+            <div className="hero-text-container">
+              <motion.h1 
+                className="hero-title"
+                initial={{ y: -50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.8, ease: [0.6, -0.05, 0.01, 0.99] }}
+              >
+                EXCLUSIVE OFFERS & PREMIUM PACKAGES
+              </motion.h1>
+              <motion.p
+                className="hero-subtitle"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6, duration: 0.8 }}
+              >
+                Discover our limited-time specials and elevate your beauty experience
+              </motion.p>
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 0.9, type: "spring", stiffness: 200 }}
+              >
+                <motion.button 
+                  className="cta-button"
+                  whileHover={buttonHover}
+                  whileTap={buttonTap}
+                  onClick={() => handleBookNow('20% Discount Offer')}
+                >
+                  Book Now & Save 20%
+                </motion.button>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </motion.section>
 
       {/* Offers Grid */}
       <motion.section 
@@ -141,6 +150,7 @@ function Offers() {
                 className="offer-button"
                 whileHover={buttonHover}
                 whileTap={buttonTap}
+                onClick={() => handleBookNow('Birthday Special - 20% OFF')}
               >
                 Claim Offer
               </motion.button>
@@ -170,6 +180,7 @@ function Offers() {
                 className="offer-button"
                 whileHover={buttonHover}
                 whileTap={buttonTap}
+                onClick={() => handleBookNow('Student Discount - 30% OFF')}
               >
                 Claim Offer
               </motion.button>
@@ -199,6 +210,7 @@ function Offers() {
                 className="offer-button"
                 whileHover={buttonHover}
                 whileTap={buttonTap}
+                onClick={() => handleBookNow('New Client Welcome - 25% OFF')}
               >
                 Claim Offer
               </motion.button>
@@ -270,6 +282,7 @@ function Offers() {
                 scale: 1.05
               }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => handleBookNow('Elite Beauty Club Membership')}
             >
               Join the Club - 5000/year
             </motion.button>
@@ -322,6 +335,7 @@ function Offers() {
               backgroundColor: "#ff6b6b"
             }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => handleBookNow('Summer Glow Package')}
           >
             Book Now - Limited Time!
           </motion.button>

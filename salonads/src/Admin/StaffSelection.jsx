@@ -16,7 +16,7 @@ function StaffSelection() {
   const [formData, setFormData] = useState({ name: "", role: "", email: "", phone: "", photo: "" });
   const [roleFilter, setRoleFilter] = useState("All");
 
-  // Load staff from localStorage
+  // Load staff from localStorage on component mount
   useEffect(() => {
     const savedStaff = localStorage.getItem("salonStaff");
     if (savedStaff) {
@@ -27,11 +27,9 @@ function StaffSelection() {
     }
   }, []);
 
-  // Save staff changes to localStorage
+  // Save staff changes to localStorage whenever staff changes
   useEffect(() => {
-    if (staff.length > 0) {
-      localStorage.setItem("salonStaff", JSON.stringify(staff));
-    }
+    localStorage.setItem("salonStaff", JSON.stringify(staff));
   }, [staff]);
 
   // Group staff by role

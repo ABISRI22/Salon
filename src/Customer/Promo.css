@@ -107,7 +107,7 @@
 }
 
 .book-now-btn {
-  background: #7c3aed;
+   background: linear-gradient(135deg, #8a2be2, #6a0dad);
   color: white;
   border: none;
   padding: 0.6rem 1.5rem;

@@ -4,7 +4,7 @@ import './LoginPage.css';
 const LoginPage = ({ onLogin }) => {
   // Predefined users (10 staff + 1 admin)
   const users = [
-    { id: 'Abisri', password: 'Abisri@22', type: 'admin', name: 'Abisri' },
+    { id: 'Admin', password: 'Admin@22', type: 'admin', name: 'Abisri' },
     { id: 'Staff', password: 'Staff123', type: 'staff', name: 'Staff' },
   ];
 

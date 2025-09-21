@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import './Skin.css';
 
 function Skin() {
+  const navigate = useNavigate();
+  
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -35,6 +38,11 @@ function Skin() {
         duration: 0.3
       }
     }
+  };
+
+  // Function to handle booking
+   const handleBookNow = () => {
+    navigate('/slot-booking');
   };
 
   return (
@@ -73,14 +81,14 @@ function Skin() {
 
       <motion.div className="treatments-grid">
         {/* First Row */}
-      <motion.div 
-  className="treatment-card"
-  variants={{
-    ...itemVariants,
-    hover: cardVariants.hover
-  }}
-  whileHover="hover"
->
+        <motion.div 
+          className="treatment-card"
+          variants={{
+            ...itemVariants,
+            hover: cardVariants.hover
+          }}
+          whileHover="hover"
+        >
           <div className="card-image-container">
             <motion.img 
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqewKqnqE9u0dpsw2R-bIgW5GuKXLZOPr1-PyJBC4nGejj3TC0PoFeKL_Mb7hY0kBSlGg&usqp=CAU" 
@@ -95,17 +103,19 @@ function Skin() {
             className="book-now-btn"
             whileHover={{ scale: 1.05, backgroundColor: "#d4a373" }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => handleBookNow('Manicure')}
           >
             Book Now
           </motion.button>
         </motion.div>
-       <motion.div 
-       className="treatment-card"
-       variants={{
-      ...itemVariants,
-      hover: cardVariants.hover
-     }}
-       whileHover="hover"
+        
+        <motion.div 
+          className="treatment-card"
+          variants={{
+            ...itemVariants,
+            hover: cardVariants.hover
+          }}
+          whileHover="hover"
         > 
           <div className="card-image-container">
             <motion.img 
@@ -121,18 +131,20 @@ function Skin() {
             className="book-now-btn"
             whileHover={{ scale: 1.05, backgroundColor: "#d4a373" }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => handleBookNow('Pedicure')}
           >
             Book Now
           </motion.button>
         </motion.div>
-     <motion.div 
-      className="treatment-card"
-       variants={{
-       ...itemVariants,
-        hover: cardVariants.hover
-        }}
+        
+        <motion.div 
+          className="treatment-card"
+          variants={{
+            ...itemVariants,
+            hover: cardVariants.hover
+          }}
           whileHover="hover"
-         > 
+        > 
           <div className="card-image-container">
             <motion.img 
               src="https://yesmadam.com/blog/wp-content/uploads/2021/07/WhatsApp-Image-2021-07-08-at-8.43.11-AM-1.jpeg" 
@@ -147,20 +159,21 @@ function Skin() {
             className="book-now-btn"
             whileHover={{ scale: 1.05, backgroundColor: "#d4a373" }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => handleBookNow('Detanning')}
           >
             Book Now
           </motion.button>
         </motion.div>
 
         {/* Second Row */}
-       <motion.div 
-  className="treatment-card"
-  variants={{
-    ...itemVariants,
-    hover: cardVariants.hover
-  }}
-  whileHover="hover"
->
+        <motion.div 
+          className="treatment-card"
+          variants={{
+            ...itemVariants,
+            hover: cardVariants.hover
+          }}
+          whileHover="hover"
+        >
           <div className="card-image-container">
             <motion.img 
               src="https://www.fashionweekly.com.au/images/Blog_2024/Beauty/How-to-Get-Glass-Skin-K-Beauty-Tips-According-to-Experts-2024.jpg" 
@@ -175,19 +188,20 @@ function Skin() {
             className="book-now-btn"
             whileHover={{ scale: 1.05, backgroundColor: "#d4a373" }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => handleBookNow('Glass Treatment')}
           >
             Book Now
           </motion.button>
         </motion.div>
 
-       <motion.div 
-  className="treatment-card"
-  variants={{
-    ...itemVariants,
-    hover: cardVariants.hover
-  }}
-  whileHover="hover"
->
+        <motion.div 
+          className="treatment-card"
+          variants={{
+            ...itemVariants,
+            hover: cardVariants.hover
+          }}
+          whileHover="hover"
+        >
           <div className="card-image-container">
             <motion.img 
               src="https://allure-derm.com/storage/2024/04/Acne-Treatment-by-Allure-Dermatology-in-Edinburg-TX.webp" 
@@ -202,19 +216,20 @@ function Skin() {
             className="book-now-btn"
             whileHover={{ scale: 1.05, backgroundColor: "#d4a373" }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => handleBookNow('Acne Treatment')}
           >
             Book Now
           </motion.button>
         </motion.div>
 
-           <motion.div 
+        <motion.div 
           className="treatment-card"
           variants={{
             ...itemVariants,
             hover: cardVariants.hover
-              }}
-              whileHover="hover"
-              >
+          }}
+          whileHover="hover"
+        >
           <div className="card-image-container">
             <motion.img 
               src="https://naomisheadmasters.com/wp-content/uploads/2023/06/Full-Body-Waxing-Prices-In-Chandigarh.webp" 
@@ -229,6 +244,7 @@ function Skin() {
             className="book-now-btn"
             whileHover={{ scale: 1.05, backgroundColor: "#d4a373" }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => handleBookNow('Waxing')}
           >
             Book Now
           </motion.button>
